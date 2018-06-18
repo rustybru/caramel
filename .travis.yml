@@ -24,15 +24,18 @@ matrix:
 jobs:
   include:
     - stage: codecov
-      env: TARGET=x86_64-unknown-linux-gnu
+      env:
+        - TARGET=x86_64-unknown-linux-gnu
       rust: nightly
       script: ./codecov.sh
+
 before_install:
   - set -e
   - rustup self update
 
 script:
   - cargo test
+
 cache: cargo
 before_cache:
   - chmod -R a+r $HOME/.cargo
