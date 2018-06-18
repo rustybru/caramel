@@ -21,21 +21,12 @@ matrix:
       os: osx
       rust: nightly
 
-before_install:
-  - set -e
-  - rustup self update
-
-script:
-  - cargo test
-cache: cargo
-before_cache:
-  - chmod -R a+r $HOME/.cargo
-
-branches:
-  only:
-    - master
-
-after_success: |
+jobs:
+  include:
+    - stage: codecov
+      env: TARGET=x86_64-unknown-linux-gnu
+      rust: nightly
+      script: |
   wget https://github.com/SimonKagstrom/kcov/archive/master.tar.gz &&
   tar xzf master.tar.gz &&
   cd kcov-master &&
@@ -49,3 +40,17 @@ after_success: |
   for file in target/debug/caramel-*[^\.d]; do mkdir -p "target/cov/$(basename $file)"; ./kcov-build/usr/local/bin/kcov --exclude-pattern=/.cargo,/usr/lib --verify "target/cov/$(basename $file)" "$file"; done &&
   bash <(curl -s https://codecov.io/bash) &&
   echo "Uploaded code coverage"
+
+before_install:
+  - set -e
+  - rustup self update
+
+script:
+  - cargo test
+cache: cargo
+before_cache:
+  - chmod -R a+r $HOME/.cargo
+
+branches:
+  only:
+    - master
