@@ -14,10 +14,8 @@ before_install:
   - set -e
   - rustup self update
 
-install:
-
 script:
-
+  - cargo test
 cache: cargo
 before_cache:
   - chmod -R a+r $HOME/.cargo
