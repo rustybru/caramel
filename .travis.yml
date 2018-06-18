@@ -23,7 +23,8 @@ matrix:
 
 jobs:
   include:
-    - stage: codecov
+    - stage: test
+    - stage: codecoverage
       env:
         - TARGET=x86_64-unknown-linux-gnu
       rust: nightly
