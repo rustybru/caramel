@@ -23,7 +23,15 @@ matrix:
 
 jobs:
   include:
-    - stage: test
+    - stage: Linux
+      rust: nightly
+      env:
+        - TARGET=x86_64-unknown-linux-gnu
+    - stage: MacOSX
+      env:
+        - TARGET=x86_64-apple-darwin
+      os: osx
+      rust: nightly
     - stage: codecoverage
       env:
         - TARGET=x86_64-unknown-linux-gnu
