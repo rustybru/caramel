@@ -1,1 +1,2 @@
- [![Build Status (Unix)](https://travis-ci.org/rustybru/caramel.svg?branch=master)](https://travis-ci.org/rustybru/caramel)[![Build status(Windows)](https://ci.appveyor.com/api/projects/status/x1lts5k35es551av/branch/master?svg=true)](https://ci.appveyor.com/project/rustybru/caramel/branch/master)
+ [![Build Status (Unix)](https://travis-ci.org/rustybru/caramel.svg?branch=master)](https://travis-ci.org/rustybru/caramel)[![Build status(Windows)](https://ci.appveyor.com/api/projects/status/x1lts5k35es551av/branch/master?svg=true)](https://ci.appveyor.com/project/rustybru/caramel/branch/master) [![codecov](https://codecov.io/gh/rustybru/caramel/branch/master/graph/badge.svg)](https://codecov.io/gh/rustybru/caramel)
+
